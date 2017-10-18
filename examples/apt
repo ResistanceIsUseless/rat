@@ -1,0 +1,9 @@
+mode apt.list
+  annotate match apt.package -- apt-cache pkgnames
+  bindkey enter apt.package apt.list -- apt-cache show %(apt.package)
+  bindkey d     apt.package apt.list -- apt-cache depends %(apt.package)
+  bindkey s     apt.package apt.list -- apt-cache search %(apt.package)
+  bindkey R     apt.package apt.list -- apt-get remove %(apt.package) --assume-yes
+  bindkey I     apt.package apt.list -- !?apt-get install %(apt.package) --assume-yes
+
+end
